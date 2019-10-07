@@ -51,6 +51,7 @@ export class Leads extends Component {
   }
 }
 
+//get the state from store and map it to the props
 const mapStateToProps = state => ({
   leads: state.leadReducer.leads
 });
