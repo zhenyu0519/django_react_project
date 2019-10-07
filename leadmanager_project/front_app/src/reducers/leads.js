@@ -1,4 +1,5 @@
-import { GET_LEADS, DELETE_LEADS } from "../actions/types.js";
+// lead reducers
+import { GET_LEADS, DELETE_LEADS, ADD_LEADS } from "../actions/types.js";
 
 const initialState = {
   something: "text",
@@ -8,6 +9,7 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_LEADS:
+      console.log({ ...state });
       return {
         ...state,
         leads: action.payload
@@ -16,6 +18,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         leads: state.leads.filter(lead => lead.id !== action.payload)
+      };
+    case ADD_LEADS:
+      return {
+        ...state,
+        leads: [...state.leads, action.payload]
       };
     default:
       return state;
